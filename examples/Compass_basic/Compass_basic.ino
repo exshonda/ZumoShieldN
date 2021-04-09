@@ -2,14 +2,17 @@
 #include <ZumoShield.h>
 
 void setup() {
-  Serial.begin(9600);  
+  Serial.begin(9600);
+
   imu.begin();
+
+  imu.configureForCompassHeading();
 
   button.waitForButton();
    
   Serial.println("starting calibration");
-  imu.doCalibration();
-//  imu.setCalibration(, , , );
+  imu.doCompassCalibration();
+//  imu.setCompassCalibration(, , , );
   
   Serial.print("max.x   ");
   Serial.print(imu.m_max.x);
@@ -30,7 +33,7 @@ void setup() {
 void loop() {
   float heading;
 
-  heading = imu.averageHeading();
+  heading = imu.averageCompassHeading();
   Serial.print("Heading: ");
   Serial.println(heading);
 }

@@ -47,6 +47,7 @@
 #define L3GD20H_REG_WHO_AM_I 0x0F
 #define L3GD20H_REG_CTRL1    0x20
 #define L3GD20H_REG_CTRL4    0x23
+#define L3GD20H_REG_CTRL5    0x24
 #define L3GD20H_REG_STATUS   0x27
 #define L3GD20H_REG_OUT_X_L  0x28
 
@@ -182,10 +183,11 @@ public:
    */
   bool magDataReady();
 
+  ZumoIMUType type = ZumoIMUType::Unknown;
+
 private:
 
   uint8_t lastError = 0;
-  ZumoIMUType type = ZumoIMUType::Unknown;
 
   int16_t testReg(uint8_t addr, uint8_t reg);
   void readAxes16Bit(uint8_t addr, uint8_t firstReg, vector<int16_t> & v);

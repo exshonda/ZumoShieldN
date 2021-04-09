@@ -148,6 +148,8 @@ functions" section above.
   * ZumoBuzzerN と buzzer を追加．
   * motors を追加．
   * ZumoReflectanceSensorArrayN と reflectances を追加．
+* ZumoIMU.h
+  * type をpublicに変更．
 
 * 既存のサンプルを ZumoShieldN 用に書き換え
    * BoarderDetect

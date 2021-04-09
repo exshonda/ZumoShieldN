@@ -4,18 +4,21 @@
 void setup()
 {  
   buzzer.playOn();  
-  
-  gyro.turnSensorSetup();
-  delay(500);
-  gyro.turnSensorReset();
+
+  imu.begin();
+  imu.configureForTurnSensing();
+  imu.turnSensorReset();
   
   buzzer.playStart();
   Serial.begin(9600);
 }
 
 void loop()
-{  
-  gyro.turnSensorUpdate();
-  Serial.println(gyro.turnAngleDegree);
+{
+  if(button.isPressed()) {
+    imu.turnSensorReset();
+  }
+  imu.turnSensorUpdate();
+  Serial.println(imu.turnAngleDegree);
 }
 
