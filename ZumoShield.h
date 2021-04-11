@@ -124,6 +124,7 @@ class ZumoIMUN : public ZumoIMU
 	// This constant represents a turn of approximately 1 degree.
 	const int32_t turnAngle1 = (turnAngle45 + 22) / 45;
 
+	int32_t turnSensorAngleDegree() {return turnAngleDegree;}
 	// This should be called to set the starting point for measuring
 	// a turn.  After calling this, turnAngle will be 0.
 	void turnSensorReset() {

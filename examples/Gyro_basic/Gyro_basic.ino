@@ -19,6 +19,6 @@ void loop()
     imu.turnSensorReset();
   }
   imu.turnSensorUpdate();
-  Serial.println(imu.turnAngleDegree);
+  Serial.println(imu.turnSensorAngleDegree());
 }
 
