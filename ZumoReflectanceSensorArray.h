@@ -89,6 +89,11 @@
   #define ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN  2
 #endif
 
+#ifdef ARDUINO_WIO_TERMINAL
+#define ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN  10
+#endif /* ARDUINO_WIO_TERMINAL */
+
+
 class ZumoReflectanceSensorArray : public QTRSensorsRC
 {
   public:
@@ -152,7 +157,12 @@ class ZumoReflectanceSensorArray : public QTRSensorsRC
    */
   void init(unsigned char emitterPin = ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN)
   {
+#ifdef ARDUINO_ARCH_AVR
     unsigned char sensorPins[] = { 4, A3, 11, A0, A2, 5 };
+#endif /* ARDUINO_ARCH_AVR */
+#ifdef ARDUINO_WIO_TERMINAL
+    unsigned char sensorPins[] = { 4, A3, A1, A0, A2, 5 };
+#endif /* ARDUINO_WIO_TERMINAL */
     QTRSensorsRC::init(sensorPins, sizeof(sensorPins), 2000, emitterPin);
   }
 

@@ -4,28 +4,43 @@
 #include <L3G.h>
 #include <Pushbutton.h>
 #include <QTRSensors.h>
+#ifdef ARDUINO_ARCH_AVR
 #include <ZumoBuzzer.h>
+#endif /* ARDUINO_ARCH_AVR */
 #include <ZumoIMU.h>
 #include <ZumoMotors.h>
 #include <ZumoReflectanceSensorArray.h>
 
 extern ZumoMotors  motors;
 
+#ifdef ARDUINO_ARCH_AVR
+#define ZUMO_LED 13
+#endif /* ARDUINO_ARCH_AVR */
+
+#ifdef ARDUINO_WIO_TERMINAL
+#define ZUMO_LED 9
+#undef ZUMO_BUTTON
+#define ZUMO_BUTTON 48
+#endif /* ARDUINO_WIO_TERMINAL */
+
 class ZumoLED
 {
   public:
-	ZumoLED(){pinMode(13, OUTPUT);};
-	void on(){digitalWrite(13, HIGH);};
-	void off(){digitalWrite(13, LOW);};
+	ZumoLED(uint8_t pin){_pin = pin; pinMode(_pin, OUTPUT);};
+	void on(){digitalWrite(_pin, HIGH);};
+	void off(){digitalWrite(_pin, LOW);};
 	void set(int i){
-		digitalWrite(13, (i == 1)? HIGH : LOW);
+		digitalWrite(_pin, (i == 1)? HIGH : LOW);
 	};
+  private:
+	uint8_t _pin;
 };
 
+#ifdef ARDUINO_ARCH_AVR
 class ZumoBuzzerN : public ZumoBuzzer
 {
   public:
-	ZumoBuzzer2(){};
+	ZumoBuzzerN(){};
 	void playOn(void) {play(">g32>>c32");};
 	void playStart(void) {playNote(NOTE_G(4), 500, 15);}
 	void playNum(int cnt) {
@@ -35,6 +50,19 @@ class ZumoBuzzerN : public ZumoBuzzer
 		}  
 	};
 };
+#endif /* ARDUINO_ARCH_AVR */
+
+#ifdef ARDUINO_WIO_TERMINAL
+class ZumoBuzzerN 
+{
+  public:
+	ZumoBuzzerN(){};
+	void playOn(void) {};
+	void playStart(void) {};
+	void playNum(int cnt) {
+	};
+};
+#endif /* ARDUINO_WIO_TERMINAL */
 
 class ZumoReflectanceSensorArrayN : public ZumoReflectanceSensorArray {
   public:
@@ -282,7 +310,7 @@ class ZumoIMUN : public ZumoIMU
 
 
 
-ZumoLED     led;
+ZumoLED     led(ZUMO_LED);
 Pushbutton  button(ZUMO_BUTTON);
 ZumoBuzzerN buzzer;
 ZumoMotors  motors;

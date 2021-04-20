@@ -1,9 +1,18 @@
 #include "ZumoMotors.h"
 
+#ifdef ARDUINO_ARCH_AVR
 #define PWM_L 10
 #define PWM_R 9
 #define DIR_L 8
 #define DIR_R 7
+#endif /* ARDUINO_ARCH_AVR */
+
+#ifdef ARDUINO_WIO_TERMINAL
+#define PWM_L 49
+#define PWM_R 6
+#define DIR_L 8
+#define DIR_R 7
+#endif /* ARDUINO_WIO_TERMINAL */
 
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || defined (__AVR_ATmega32U4__)
   #define USE_20KHZ_PWM

@@ -1,5 +1,6 @@
 // Copyright Pololu Corporation.  For more information, see http://www.pololu.com/
 
+#ifdef ARDUINO_ARCH_AVR
 #include <avr/interrupt.h>
 #include "PololuBuzzer.h"
 
@@ -728,3 +729,4 @@ unsigned char PololuBuzzer::playCheck()
     nextNote();
   return buzzerSequence != 0;
 }
+#endif /* ARDUINO_ARCH_AVR */
