@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 // this might need to be tuned for different lighting conditions, surfaces, etc.
 #define QTR_THRESHOLD  600

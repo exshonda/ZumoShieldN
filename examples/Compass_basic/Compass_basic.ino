@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 void setup() {
   Serial.begin(9600);

@@ -25,7 +25,7 @@
  */
 
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 // SENSOR_THRESHOLD is a value to compare reflectance sensor
 // readings to to decide if the sensor is over a black line

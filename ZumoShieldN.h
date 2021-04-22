@@ -106,6 +106,10 @@ class ZumoIMUN : public ZumoIMU
 		// Initialize the Wire library and join the I2C bus as a master
 		Wire.begin();
 
+#ifdef ARDUINO_WIO_TERMINAL
+		delay(100);
+#endif /* ARDUINO_WIO_TERMINAL */
+
 		// Initialize IMU
 		init();
 

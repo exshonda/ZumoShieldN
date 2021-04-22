@@ -12,14 +12,13 @@ emitters are on during the reading.
 */
 
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 ZumoReflectanceSensorArray reflectanceSensors;
-Pushbutton button(ZUMO_BUTTON);
 
 // Define an array for holding sensor values.
 #define NUM_SENSORS 6
-uint16_t sensorValues[NUM_SENSORS];
+unsigned int sensorValues[NUM_SENSORS];
 
 bool useEmitters = true;
 

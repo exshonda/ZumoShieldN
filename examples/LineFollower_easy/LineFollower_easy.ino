@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 #define REFLECTANCE_THRESHOLD  600
 

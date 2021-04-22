@@ -140,14 +140,20 @@ functions" section above.
 
 ## 変更事項
 
+WioTerminal対応．
+* ARDUINO_WIO_TERMINAL マクロで切り替え．
+* ブザーは無効．
+
 利便性の向上のために次の変更を実施．
 
 * ZumoShield.h
+  * オリジナルとバッティングしないようにZumoShieldN.hに変更
   * ZumoLED と led を追加．
   * button を追加．
   * ZumoBuzzerN と buzzer を追加．
   * motors を追加．
   * ZumoReflectanceSensorArrayN と reflectances を追加．
+
 * ZumoIMU.h
   * type をpublicに変更．
 

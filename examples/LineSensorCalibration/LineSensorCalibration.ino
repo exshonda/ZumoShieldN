@@ -26,7 +26,7 @@ directly under sensor 5 or was last seen by sensor 5 before being lost.
 */
 
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 ZumoReflectanceSensorArray reflectanceSensors;
 

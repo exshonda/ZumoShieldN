@@ -20,7 +20,7 @@ The magnetometer readings are more difficult to interpret and
 will usually require calibration. */
 
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 char report[120];
 

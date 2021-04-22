@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 #define REF_THRESHOLD  400
 

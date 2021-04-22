@@ -35,7 +35,7 @@
  */
 
 #include <Wire.h>
-#include <ZumoShield.h>
+#include <ZumoShieldN.h>
 
 // #define LOG_SERIAL // write log output to serial port
 
