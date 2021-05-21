@@ -5,11 +5,11 @@
 #define QTR_THRESHOLD  600
 
 // these might need to be tuned for different motor types
-#define REVERSE_SPEED     200 // 0 is stopped, 400 is full speed
-#define TURN_SPEED        200
-#define FORWARD_SPEED     200
-#define REVERSE_DURATION  200 // ms
-#define TURN_DURATION     300 // ms
+#define REVERSE_SPEED     100 // 0 is stopped, 400 is full speed
+#define TURN_SPEED        100
+#define FORWARD_SPEED     100
+#define REVERSE_DURATION  100 // ms
+#define TURN_DURATION     200 // ms
 
 void setup()
 {
