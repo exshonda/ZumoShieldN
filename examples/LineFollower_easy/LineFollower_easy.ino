@@ -21,7 +21,7 @@ void loop() {
   
   if(reflectances.value(1) > REFLECTANCE_THRESHOLD) {
        motors.setSpeeds(-100, 100);
-  }else if (reflectances.value(5) > REFLECTANCE_THRESHOLD) {
+  }else if (reflectances.value(6) > REFLECTANCE_THRESHOLD) {
        motors.setSpeeds(100, -100);
   }else {
         motors.setSpeeds(100, 100);
