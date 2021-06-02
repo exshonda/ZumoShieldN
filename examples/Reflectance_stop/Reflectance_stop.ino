@@ -13,8 +13,8 @@ void setup() {
 void loop() {
   reflectances.update();
 
-  while ((reflectances.value(3) < REF_THRESHOLD) && 
-          (reflectances.value(4) < REF_THRESHOLD)) {
+  while ((reflectances.value(1) < REF_THRESHOLD) && 
+          (reflectances.value(6) < REF_THRESHOLD)) {
     motors.setSpeeds(100, 100);
     led.on();
     reflectances.update();
